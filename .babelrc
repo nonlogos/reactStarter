@@ -1,6 +1,14 @@
 {
-	"presets": [
-		"react",
-		["es2015", {"modules": false, "loose": true}]
-	]
+  "presets": [
+    "react",
+    ["latest", {
+      "es2015": {
+        "modules": false 
+      }
+    }]
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-object-rest-spread"
+  ]
 }

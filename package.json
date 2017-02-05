@@ -6,18 +6,15 @@
   "author": "Connie Yu <nonlogoes1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "NODE_ENV=test jest",
     "update-test": "npm run test -- -u",
-    "prebuild": "rimraf public",
-    "build": "webpack -p --env.prod",
-    "dev": "webpack-dev-server --env.dev",
-    "prebuild:dev": "rimraf public",
-    "build:dev": "webpack --env.dev",
+    "start": "webpack-dev-server --config webpack/dev.config.js --watch",
+    "build": "NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
     "lint": "eslint js/**/*.js",
     "watch": "webpack --watch"
   },
   "dependencies": {
     "axios": "0.15.2",
+    "babel-polyfill": "^6.20.0",
     "express": "4.14.0",
     "history": "^4.4.0",
     "lodash": "4.16.2",
@@ -29,18 +26,19 @@
     "react-redux": "4.4.0",
     "react-router": "4.0.0-alpha.5",
     "redux": "3.3.1",
+    "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.6.0",
     "babel-core": "6.16.0",
-    "babel-jest": "16.0.0",
     "babel-loader": "6.2.7",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
-    "babel-polyfill": "^6.16.0",
-    "babel-preset-es2015": "6.18.0",
-    "babel-preset-es2017": "6.16.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "6.16.0",
     "babel-register": "6.16.0",
+    "clean-webpack-plugin": "^0.1.14",
     "css-loader": "0.25.0",
     "enzyme": "2.0.0",
     "enzyme-to-json": "^1.3.0",
@@ -48,23 +46,28 @@
     "eslint-loader": "1.3.0",
     "eslint-plugin-promise": "2.0.1",
     "eslint-plugin-react": "6.3.0",
-    "jest": "15.1.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.25.0",
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
+    "node-sass": "^4.1.1",
+    "postcss-loader": "^1.2.1",
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
-    "rimraf": "^2.5.4",
     "sass-loader": "^4.1.1",
-    "style-loader": "0.13.1",
-    "webpack": "2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.0"
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.1.0-beta.20",
+    "webpack-dev-server": "^2.1.0-beta.9",
+    "webpack-merge": "^2.0.0"
   },
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/btholt/complete-intro-to-react.git"
+    "url": "git+https://github.com/nonlogos/reactStarter.git"
   },
   "keywords": [
     "react",
@@ -73,7 +76,7 @@
     "redux"
   ],
   "bugs": {
-    "url": "https://github.com/btholt/complete-intro-to-react/issues"
+    "url": "https://github.com/nonlogos/reactStarter.git/issues"
   },
-  "homepage": "https://github.com/btholt/complete-intro-to-react#readme"
+  "homepage": "https://github.com/nonlogos/reactStarter.git#readme"
 }
