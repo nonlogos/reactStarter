@@ -8,7 +8,7 @@ import PagesComponent from './pages_component'
 const App = (props) => {
 	return(
 		<BrowserRouter>
-			<div>
+			<div className="app">
 				<nav>
 					<ul>
 						<li><Link to="/">Home</Link></li>

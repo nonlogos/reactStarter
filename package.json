@@ -8,8 +8,11 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "update-test": "npm run test -- -u",
-    "build": "webpack",
-    "dev": "webpack-dev-server",
+    "prebuild": "rimraf public",
+    "build": "webpack -p --env.prod",
+    "dev": "webpack-dev-server --env.dev",
+    "prebuild:dev": "rimraf public",
+    "build:dev": "webpack --env.dev",
     "lint": "eslint js/**/*.js",
     "watch": "webpack --watch"
   },
@@ -50,9 +53,11 @@
     "json-loader": "0.5.4",
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^4.1.1",
     "style-loader": "0.13.1",
     "webpack": "2.1.0-beta.25",
-    "webpack-dev-server": "1.16.2"
+    "webpack-dev-server": "^2.1.0-beta.0"
   },
   "directories": {
     "test": "test"
